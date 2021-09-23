@@ -1,0 +1,33 @@
+{
+  "name": "dictionary",
+  "version": "1.0.0",
+  "description": "a simple dictionary bot",
+  "main": "bot.js",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "start": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TesseractB/dictionary.git"
+  },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "discordjs",
+    "js",
+    "bot"
+  ],
+  "author": "Tesseract",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/TesseractB/dictionary/issues"
+  },
+  "homepage": "https://github.com/TesseractB/dictionary#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord.js": "^13.1.0",
+    "fs": "^0.0.1-security"
+  }
+}
