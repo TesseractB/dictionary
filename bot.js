@@ -28,46 +28,28 @@ const priv = new Sequelize('database', 'user', 'password', {
 });
 //DB Initialization
 const data = pub.define('data', {
-    gid: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
+    term: {
+        primaryKey: true,
+        type: Sequelize.STRING
     },
-    HIGHEST_COLORED_ROLE_POS: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1
+    definition: {
+        type: Sequelize.TEXT
     },
-    FIRST_TIME_SETUP: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-    },
-    CHANNEL_LOCK: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-    },
-    CHANNEL_LOCK_CHANNEL: {
+    uid: {
         type: Sequelize.INTEGER
     }
 })
 
 const privData = priv.define('data', {
-    gid: {
-        type: Sequelize.INTEGER,
-        primaryKey: true
-    },
-    HIGHEST_COLORED_ROLE_POS: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1
-    },
-    FIRST_TIME_SETUP: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-    },
-    CHANNEL_LOCK: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
-    },
-    CHANNEL_LOCK_CHANNEL: {
+    uid: {
+        primaryKey: true,
         type: Sequelize.INTEGER
+    },
+    terms: {
+        type: Sequelize.STRING
+    },
+    definitions: {
+        type: Sequelize.STRING
     }
 })
 

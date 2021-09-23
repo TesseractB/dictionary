@@ -77,3 +77,4 @@ typings/
 
 node_modules
 config.js
+*.sqlite
