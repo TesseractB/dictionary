@@ -26,9 +26,9 @@ module.exports = {
             const index = terms.indexOf(term)
             if (!index) {return interaction.reply("There are no terms matching the one you provided in this dictionary")}
             interaction.reply("Find your terms below")
-            interaction.followUp(terms[index])
+            interaction.followUp("Term:\n```\n" + terms[index] + "\n```")
             for (const substr of splitStr(definitions[index])) {
-                interaction.followUp(substr)
+                interaction.followUp("Definition:\n```\n" + substr + "\n```")
             }
         } else {
             const row = await data.findOne({where: {term: term}})

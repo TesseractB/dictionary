@@ -30,7 +30,6 @@ module.exports = {
             const data = await privData.findOrCreate({where: {uid: interaction.member.id}, defaults: {uid: interaction.member.id}})
             privData.findOne({where: {uid: interaction.member.id}}).then(async function(profile) {
                 const preterms = profile.terms
-                console.log(preterms)
                 const terms = preterms.split(',')
                 const predefinitions = profile.definitions
                 const definitions = predefinitions.split(',')
