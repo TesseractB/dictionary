@@ -23,14 +23,19 @@ module.exports = {
                 .setRequired(true)
         ),
     async execute(interaction, client, data, privData) {
+        
         const term = interaction.options.getString("term")
         const definition = interaction.options.getString("definition")
         if (interaction.options.getBoolean("priv")) {
-            await privData.findOrCreate({where: {uid: interaction.member.id}, defaults: {uid: interaction.member.id}})
-            await privData.findOne({where: {uid: interaction.member.id}}).then(function(profile) {
-                const terms = profile.terms.split(',')
-                const definitions = profile.definitions.split(',')
+            const data = await privData.findOrCreate({where: {uid: interaction.member.id}, defaults: {uid: interaction.member.id}})
+            privData.findOne({where: {uid: interaction.member.id}}).then(async function(profile) {
+                const preterms = profile.terms
+                console.log(preterms)
+                const terms = preterms.split(',')
+                const predefinitions = profile.definitions
+                const definitions = predefinitions.split(',')
                 if (terms.includes(term)) {return interaction.reply({content: "Term already defined.", ephemeral: true})}
+                interaction.reply("Adding your term to the dictionary")
                 terms.push(term)
                 definitions.push(definition)
                 privData.update({
@@ -40,6 +45,15 @@ module.exports = {
             })
 
         }
-        else {interaction.reply(`Pong! Latency is \`${client.ws.ping}ms\``)}
+        
+        else {
+            if (await data.findOne({where: {term: term}})) {return interaction.reply({content: "Term already defined.", ephemeral: true})}
+            interaction.reply("Adding your term to the dictionary")
+            const newdata = await data.create({
+                uid: interaction.member.id,
+                term: term,
+                definition: definition
+            })
+        }
     }
 }

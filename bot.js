@@ -30,10 +30,11 @@ const priv = new Sequelize('database', 'user', 'password', {
 const data = pub.define('data', {
     term: {
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        
     },
     definition: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
     },
     uid: {
         type: Sequelize.INTEGER
@@ -46,10 +47,12 @@ const privData = priv.define('data', {
         type: Sequelize.INTEGER
     },
     terms: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: ","
     },
     definitions: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: ","
     }
 })
 
