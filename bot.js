@@ -45,14 +45,14 @@ const data = sequelize.define('data', {
         type: Sequelize.TEXT,
     },
     uid: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
     }
 })
 
 const privData = sequelize.define('privdata', {
     uid: {
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
     },
     terms: {
         type: Sequelize.STRING,
