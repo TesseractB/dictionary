@@ -2,10 +2,20 @@ const Discord = require('discord.js')
 const { Client,Intents,MessageActionRow,MessageButton,Permissions,Collection } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
 const Sequelize = require("sequelize");
-const config = require("./config.js")
-const fs = require("fs");
 
-client.config = config
+const fs = require("fs");
+const dotenv = require("dotenv")
+dotenv.config()
+const express = require("express");
+const path = require("path");
+const app = express(); 
+const port = process.env.PORT
+app.get("/", (req, res) => { res.status(200).send("you shouldn't be here"); });
+app.listen(port, () => { console.log(`Listening to requests on http://localhost:${port}`); });
+var http = require("http");
+setInterval(function() {
+   http.get(`http://${process.env.HEROKU_APP_NAME}.herokuapp.com`);
+}, 300000); // every 5 minutes (300000)
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -14,20 +24,18 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 //DB Initialization
-const pub = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'data.sqlite'
-});
-const priv = new Sequelize('database', 'user', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    logging: false,
-    storage: 'privdata.sqlite'
-});
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+        ssl: {
+            required: true,
+            rejectUnauthorized: false
+        }
+    }
+})
 //DB Initialization
-const data = pub.define('data', {
+const data = sequelize.define('data', {
     term: {
         primaryKey: true,
         type: Sequelize.STRING,
@@ -41,7 +49,7 @@ const data = pub.define('data', {
     }
 })
 
-const privData = priv.define('data', {
+const privData = sequelize.define('privdata', {
     uid: {
         primaryKey: true,
         type: Sequelize.INTEGER
@@ -83,4 +91,4 @@ client.on("interactionCreate", async interaction => {
     }
 })
 
-client.login(config.secret)
+client.login(process.env.TOKEN)

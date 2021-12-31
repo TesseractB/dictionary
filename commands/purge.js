@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders')
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("purge")
-        .setDescription("Gets the ping of the bot")
+        .setDescription("Deletes term from dictionary")
         .addStringOption((option) => 
             option
                 .setName("term")
