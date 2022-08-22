@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/TesseractB/dictionary#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.15.0",
+    "@discordjs/builders": "^1.2.0",
     "@discordjs/rest": "^0.5.0",
     "csvtojson": "^2.0.10",
     "discord.js": "^13.8.0",
