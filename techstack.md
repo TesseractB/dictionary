@@ -3,9 +3,9 @@
 ## Tech Stack
 TesseractB/dictionary is built on the following main stack:
 
-- [PostgreSQL](http://www.postgresql.org/) – Databases
-- [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
+- [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
+- [PostgreSQL](http://www.postgresql.org/) – Databases
 - [Sequelize](https://sequelize.org/) – Object Relational Mapper (ORM)
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
@@ -17,9 +17,9 @@ Full tech stack [here](/techstack.md)
 ## Tech Stack
 TesseractB/dictionary is built on the following main stack:
 
-- <img width='25' height='25' src='https://img.stackshare.io/service/1028/ASOhU5xJ.png' alt='PostgreSQL'/> [PostgreSQL](http://www.postgresql.org/) – Databases
-- <img width='25' height='25' src='https://img.stackshare.io/service/1163/hashtag.png' alt='ExpressJS'/> [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
+- <img width='25' height='25' src='https://img.stackshare.io/service/1163/hashtag.png' alt='ExpressJS'/> [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
+- <img width='25' height='25' src='https://img.stackshare.io/service/1028/ASOhU5xJ.png' alt='PostgreSQL'/> [PostgreSQL](http://www.postgresql.org/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/3211/3591786.png' alt='Sequelize'/> [Sequelize](https://sequelize.org/) – Object Relational Mapper (ORM)
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
@@ -32,7 +32,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [TesseractB/dictionary](https://github.com/TesseractB/dictionary)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|16<br/>Tools used|01/28/24 <br/>Report generated|
+|16<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
